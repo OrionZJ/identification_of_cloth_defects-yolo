@@ -201,6 +201,10 @@ class IDetect(nn.Module):
 
                 y = x[i].sigmoid()
                 if not torch.onnx.is_in_onnx_export():
+                    # print(y.is_cuda, self.stride[i].is_cuda, self.grid[i].is_cuda)
+                    device = y.device
+                    self.stride[i] = self.stride[i].to(device)
+                    self.grid[i] = self.grid[i].to(device)
                     y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
                     y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
                 else:
