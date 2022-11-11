@@ -2,12 +2,12 @@
 # Usage: pip install -r requirements.txt
 
 # Base ------------------------------------------------------------------------
-ipython  # interactive notebook
+ipython~=8.6.0
 matplotlib>=3.2.2
 numpy>=1.18.5
 opencv-python>=4.1.1
 Pillow>=7.1.2
-psutil  # system resources
+psutil~=5.9.4
 PyYAML>=5.3.1
 requests>=2.23.0
 scipy>=1.4.1
@@ -46,3 +46,5 @@ seaborn>=0.11.0
 # pycocotools>=2.0  # COCO mAP
 # roboflow
 # ultralytics  # HUB https://hub.ultralytics.com
+
+timm~=0.6.11
