@@ -675,9 +675,9 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
             c1, c2 = ch[f], args[0]
             c2 = make_divisible(c2 * gw, 8)
             args = [c1, c2, n, *args[1:]]
-        elif m is HorNet:
-            c2 = args[0]
-            args = args[1:]
+        # elif m is HorNet:
+        #     c2 = args[0]
+        #     args = args[1:]
         # torchvision
         elif m is RegNet1 or m is RegNet2 or m is RegNet3:
             c2 = args[0]
@@ -687,6 +687,8 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
             c2 = args[0]
         elif m is Expand:  # no
             c2 = ch[f] // args[0] ** 2
+        elif m is space_to_depth:
+            c2 = 4 * ch[f]
         else:
             c2 = ch[f]
 
