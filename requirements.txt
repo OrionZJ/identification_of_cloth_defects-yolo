@@ -47,4 +47,4 @@ seaborn>=0.11.0
 # roboflow
 # ultralytics  # HUB https://hub.ultralytics.com
 
-timm~=0.6.11
+timm~=0.6.13
